@@ -15,4 +15,11 @@ class F_gane(enum.Enum):
     f_game_1 = './font_game/f_game.otf'
     f_game_2 = './font_game/f_game.ttf'
 
-arr_random_status_soldier = [Status.freeze, Status.move, Status.jump, Status.attack_freeze, Status.attack_move, Status.attack_jump]
+arr_random_status_soldier = [
+    Status.freeze, 
+    Status.move, 
+    Status.jump, 
+    Status.attack_freeze, 
+    Status.attack_move, 
+    Status.attack_jump
+]
