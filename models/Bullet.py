@@ -5,7 +5,7 @@ class Bullet:
     def __init__(self, bullet_type="player", speed_bullet=10) -> None:
         self.image = pygame.image.load(f'./images/bullet/{bullet_type}.png')
         self.rect = self.image.get_rect()
-        self.directon = Direction.left
+        self.direction = Direction.left
         self.speed = speed_bullet
     
     def draw(self, screen):

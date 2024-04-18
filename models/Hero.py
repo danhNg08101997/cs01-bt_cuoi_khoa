@@ -1,4 +1,4 @@
-import pygame
+import pygame, json
 from models.Constant import Status, Direction, F_gane
 from models.Bullet import Bullet
 
@@ -19,6 +19,11 @@ class Hero():
         self.jump_velocity = 0
         self.jumping = True
         self.font = F_gane.f_game_2.value
+        self.attack_sound = pygame.mixer.Sound('./sounds/pistol.wav')
+        self.die_sound = pygame.mixer.Sound('./sounds/marco.wav')
+        self.move_sound = pygame.mixer.Sound('./sounds/button.wav')
+        self.file_game = 'hero.json'
+
     
     def draw(self, screen:pygame.Surface):
         # Xử lý nhảy
@@ -102,4 +107,14 @@ class Hero():
             self.rect.x -= self.speed
         elif self.direction == Direction.right:
             self.rect.x += self.speed
-        self.status = Status.attack_move
+    
+    def save_game(self):
+        data ={"Score":self.score, "Live": self.live}
+        with open(self.file_game, 'w') as json_file:
+            json.dump(data, json_file)
+    
+    def load_game(self):
+        with open(self.file_game, 'r') as json_file:
+            data = json.load(json_file)
+            self.score = data["Score"]
+            self.live = data["Live"]
