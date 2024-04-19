@@ -110,11 +110,11 @@ class Hero():
     
     def save_game(self):
         data ={"Score":self.score, "Live": self.live}
-        with open(self.file_game, 'w') as json_file:
-            json.dump(data, json_file)
+        with open(self.file_game, 'w') as hero:
+            json.dump(data, hero)
     
     def load_game(self):
-        with open(self.file_game, 'r') as json_file:
-            data = json.load(json_file)
+        with open(self.file_game, 'r') as hero:
+            data = json.load(hero)
             self.score = data["Score"]
             self.live = data["Live"]
